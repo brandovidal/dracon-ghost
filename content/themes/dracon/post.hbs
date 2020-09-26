@@ -1,0 +1,59 @@
+{{!< default}}
+
+<style>
+    .post__background-image {
+        height: 80vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        backgrund-repeat: no-repeat;
+        tranistion: 0.8 ease all;
+    }
+    .post__background-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 80vh;
+        width: 100%;
+        background: rgba(0,0,0,0.3);
+    }
+    .post__background-image:hover::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 80vh;
+        width: 100%;
+        background: rgba(0,0,0,0.4);
+    }
+
+    .post__background-image-text {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        color: white;
+    }
+</style>
+
+{{#post}}
+<article>
+    <header class="post__background-image container" style="background-image: url({{feature_image}})">
+        <div class="post__background-image-text">
+            <h1 class="title has-text-white">{{title}}</h1>
+            <time class="subtitle has-text-white">
+                {{date format="DD MMMM YYYY"}}
+            </time>
+        </div>
+    </header>
+    <section class="container">
+        <div class="content">
+            {{content}}
+        </div>
+    </section>
+</article>
+{{/post}}
